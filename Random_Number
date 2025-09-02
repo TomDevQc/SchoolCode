@@ -1,0 +1,9 @@
+## Ressoures
+import numpy as np
+
+## Variables
+msg = "Lancez un dé!"
+
+## Envoie du message avce un chiffre random entre 1 & 6 
+print(msg)
+print(np.random.randint(1,6))
