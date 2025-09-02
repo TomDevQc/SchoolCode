@@ -1,0 +1,35 @@
+from datetime import datetime
+
+##  DEBUT
+print("Veuillez entrer votre nom")
+nom = input()
+message = "Bonjour"
+print(message, nom)
+
+## AGE
+print("Quelle est votre année de naissance? (JJ/MM/AAAA)")
+date_str = input()
+date_naissance = datetime.strptime(date_str, "%d/%m/%Y")
+aujourdhui = datetime.today()
+age = aujourdhui.year - date_naissance.year
+
+print("Vous avez", age, "an(s)")
+
+print("Envoyez un premier chiffre")
+a = int(input())
+print("Envoyez un deuxieme chiffre")
+b = int(input())
+somme = a + b
+print("Voici le résultat", somme)
+
+print("Envoyez un premier x")
+x1 = int(input())
+print("Envoyez un premier y")
+y1 = int(input())
+print("Envoyez un deuxieme x")
+x2 = int(input())
+print("Envoyez un deuxieme y")
+y2 = int(input())
+
+d = ((x1 - x2)**2 + (y1 -y2)**2)**(1/2)
+print("La distance entre vos 2 oordonnées est", d)
