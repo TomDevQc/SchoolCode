@@ -1,0 +1,75 @@
+#include <Keyboard.h>
+
+const int btnPS = 2;
+const int btnAI = 3;
+const int btnDS = 4;
+const int btnVS = 5;
+const int btnMute = 6;
+const int potPin = A0;
+
+int lastPotValue = 0;
+
+
+void setup() {
+  
+  pinMode(btnPS, INPUT_PULLUP);
+  pinMode(btnAI, INPUT_PULLUP);
+  pinMode(btnDS, INPUT_PULLUP);
+  pinMode(btnVS, INPUT_PULLUP);
+
+  Keyboard.begin();
+
+}
+
+void loop() {
+  if(digitalRead(btnPS) == LOW) {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press('p'); // Photoshop
+    delay(100);
+    Keyboard.releaseAll();
+  }
+
+  if(digitalRead(btnAI) == LOW) {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press('i'); // Photoshop
+    delay(100);
+    Keyboard.releaseAll();
+  }
+
+  if(digitalRead(btnDS) == LOW) {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press('d'); // Photoshop
+    delay(100);
+    Keyboard.releaseAll();
+  }
+
+  if(digitalRead(btnVS) == LOW) {
+    Keyboard.press(KEY_LEFT_CTRL);
+    Keyboard.press(KEY_LEFT_ALT);
+    Keyboard.press('v'); // Photoshop
+    delay(100);
+    Keyboard.releaseAll();
+  }
+
+  if(digitalRead(btnMute) == LOW) {
+    Keyboard.write(KEY_MEDIA_MUTE); // Mute
+    delay(100);
+  }
+
+
+  int potValue = analogRead(potPin);
+  if(abs(potValue - lastPotValue) > 5) {
+      if(potValue > lastPotValue) {
+        Keyboard.write(KEY_MEDIA_VOLUME_UP);
+      } 
+      else {
+        Keyboard.write(KEY_MEDIA_VOLUME_DOWN);
+      }
+      lastPotValue = potValue;
+      delay(50);
+  }
+
+}
