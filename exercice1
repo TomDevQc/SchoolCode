@@ -1,0 +1,22 @@
+# --- Partie 1 : Saisie d'éléments dans une liste tant que ce n'est pas vide ---
+liste = []
+
+while True:
+    saisie = input("Entrez un texte ou un nombre (laisser vide pour arrêter) : ")
+    if saisie == "":  # Si l'utilisateur ne tape rien, on arrête
+        break
+    liste.append(saisie)
+
+print("\nVous avez entré :", liste)
+
+# --- Partie 2 : Demander un numéro valide et afficher l'élément correspondant ---
+while True:
+    try:
+        position = int(input(f"Entrez un nombre entier de 1 à {len(liste)} : "))
+        if 1 <= position <= len(liste):
+            print("L'élément à cette position est :", liste[position - 1])
+            break
+        else:
+            print("Nombre hors plage. Réessayez.")
+    except ValueError:
+        print("Ce n'est pas un entier valide. Réessayez.")
