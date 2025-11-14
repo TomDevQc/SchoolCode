@@ -1,26 +1,27 @@
-## Thomas Power
+## Thomas Power et Zack-Antoine Grenier
 ## TP2 - Programme de laboratoire de physique
 ## 2025-11-07
 
 
-"""
-████████╗ ██████╗ ███╗   ███╗██████╗ ███████╗██╗   ██╗ ██████╗  ██████╗
-╚══██╔══╝██╔═══██╗████╗ ████║██╔══██╗██╔════╝██║   ██║██╔═══██╗██╔════╝
-   ██║   ██║   ██║██╔████╔██║██║  ██║█████╗  ██║   ██║██║   ██║██║     
-   ██║   ██║   ██║██║╚██╔╝██║██║  ██║██╔══╝  ╚██╗ ██╔╝██║▄▄ ██║██║     
-   ██║   ╚██████╔╝██║ ╚═╝ ██║██████╔╝███████╗ ╚████╔╝ ╚██████╔╝╚██████╗
-   ╚═╝    ╚═════╝ ╚═╝     ╚═╝╚═════╝ ╚══════╝  ╚═══╝   ╚══▀▀═╝  ╚═════╝
-"""                                                                       
 
 
-# Constante
-VALEUR_THEORIQUE = 9.8 #m/s^2
 
-# Dictionnaire
-equipe = {}
-toutes_les_equipes = []
 
 def menu():                                                             ## -- MENU D'ACCUEIL --
+    """
+    la fonction va demander à l'utilisateur le choix de ce qu'il veut faire avec le programme
+
+    parameters
+    ----------
+    choix a
+        entrer données
+    choix b
+        résultats équipes
+    choix c
+        statistique complète
+    choix d
+        quitter le programme
+    """
     choix = ""
     while True:
         print("======== MENU ========")
@@ -44,7 +45,12 @@ def menu():                                                             ## -- ME
 
 
 def entrer_donnees():                                                   ## -- Entrer données --
-    global equipe
+    """
+    lorsque choix a est choisi, le programme va demander les informations à l'utilisateur.
+    Le programme va ensuite enregistrer les données afin de potentiellement les utiliser plus tard
+    """
+    
+    
 
     while True:
         nom = input("Nom de l'équipe: ")
@@ -94,7 +100,15 @@ def entrer_donnees():                                                   ## -- En
     toutes_les_equipes.append(equipe.copy())
 
 def resultats_equipe():                                           ## -- Afficher Résultats Equipe --
-    global toutes_les_equipes
+    """
+    Le programme va premièrement afficher les résultats des équipes, ensuite va calculer toutes les données entrées par l'utilisateur.
+    Finalement, le programme va afficher les données de l'équipe
+
+    parameters
+    ----------
+    pour chaque données dans toutes_les_equipes
+        afficher le nom de l'équipe et leurs données
+    """
 
     if len(toutes_les_equipes) == 0:
         print("Aucune équipe enregistrée.")
@@ -144,7 +158,11 @@ def resultats_equipe():                                           ## -- Afficher
     print("Pourcentage d'écart  :", round(ecart, 2), "%")
 
 def statistiques_completes():                                     ## -- Afficher Résultats Completes --
-    global toutes_les_equipes
+    """
+    Le programme va calculer encore certaine données tel que l'acclélération, va ensuite stocker les données avant d'afficher les statistiques complètes
+    des équipes à l'aide des données tout fraichement calculées ou encoretoutes les données précédemment calculées.
+  """
+  
 
     if len(toutes_les_equipes) == 0:
         print("Aucune équipe enregistrée.")
@@ -194,5 +212,15 @@ def statistiques_completes():                                     ## -- Afficher
     print("% d'écart moyen :", round(sum(liste_ecarts)/len(liste_ecarts), 2), "%")
 
 
+
+
 # Début programme
+
+# Constante
+VALEUR_THEORIQUE = 9.8 #m/s^2
+
+# Dictionnaire
+equipe = {}
+toutes_les_equipes = []
+
 menu()
